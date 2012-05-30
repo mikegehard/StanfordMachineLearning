@@ -13,9 +13,9 @@ J = 0;
 % Instructions: Compute the cost of a particular choice of theta
 %               You should set J to the cost.
 
-
-
-
+guess = theta' * X'; 
+differences = (guess - y');
+J = sum(differences .^ 2) / (2 * m)
 
 % =========================================================================
 

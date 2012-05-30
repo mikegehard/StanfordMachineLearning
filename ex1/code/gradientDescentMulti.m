@@ -17,15 +17,16 @@ for iter = 1:num_iters
     %       of the cost function (computeCostMulti) and gradient here.
     %
 
+  numberOfFeatures = size(X, 2);
+  hypothesisValues = theta' * X'; 
+  differences = (hypothesisValues - y');
+  scalingFactor = alpha/m;
+  originalTheta = theta;
 
-
-
-
-
-
-
-
-
+  for feature = 1:numberOfFeatures,
+    originalFeatureValues = X(:, feature);
+    theta(feature) = originalTheta(feature) - (scalingFactor * sum(differences .* originalFeatureValues'));
+  end;
 
     % ============================================================
 
