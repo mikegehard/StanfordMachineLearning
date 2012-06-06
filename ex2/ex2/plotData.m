@@ -12,9 +12,11 @@ figure; hold on;
 %               examples and 'ko' for the negative examples.
 %
 
+positiveIndexes = find(y == 1);
+negativeIndexes = find(y == 0);
 
-
-
+plot(X(positiveIndexes, 1), X(positiveIndexes, 2), 'k+');
+plot(X(negativeIndexes, 1), X(negativeIndexes, 2), 'ko', 'MarkerFaceColor', 'y');
 
 
 
