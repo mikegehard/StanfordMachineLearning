@@ -22,12 +22,21 @@ grad = zeros(size(theta));
 
 summation = 0;
 guesses = sigmoid(theta' * X');
+numberOfFeatures = size(X, 2); 
 
 for i = 1:numberOfTrainingExamples
   summation = summation + (y(i) * log(guesses(i)) + (1 - y(i)) * log(1 -  guesses(i))); 
-endfor
+end
 
 J = -summation / numberOfTrainingExamples;
+
+for j = 1:numberOfFeatures
+  summation = 0;
+  for i = 1:numberOfTrainingExamples
+    summation = summation + (guesses(i) - y(i)) * X(i,j);
+  end
+  grad(j) = summation/numberOfTrainingExamples;
+end
 
 % =============================================================
 
